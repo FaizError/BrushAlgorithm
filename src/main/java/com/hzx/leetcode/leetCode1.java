@@ -1,21 +1,21 @@
 package com.hzx.leetcode;
 
+import java.util.HashMap;
+
 public class leetCode1 {
 
     public int[] twoSum(int[] nums, int target) {
-        int[] arr = new int[2];
-        int left = 0;
-        int right = nums.length - 1;
 
-        while(left < right){
-            if(nums[left] + nums[right] == target){
-                arr[0] = left;
-                arr[1] = right;
-                break;
+        HashMap<Integer, Integer> map = new HashMap<>();
+
+        for (int i = 0; i < nums.length; i++) {
+            if(map.containsKey(target -  nums[i])){
+                return new int[]{i,map.get(target -  nums[i])};
             }
-            left++;
+
+            map.put(nums[i], i);
         }
 
-        return arr;
+        return new int[0];
     }
 }
