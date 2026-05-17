@@ -39,9 +39,9 @@ build/
 .DS_Store
 
 
- # 构建产物
- target/
- build/
- out/
- *.class
- *.jar
+# 构建产物
+target/
+build/
+out/
+*.class
+*.jar
