@@ -37,3 +37,11 @@ build/
 
 ### Mac OS ###
 .DS_Store
+
+
+ # 构建产物
+ target/
+ build/
+ out/
+ *.class
+ *.jar
