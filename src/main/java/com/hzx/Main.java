@@ -1,15 +1,16 @@
 package com.hzx;
 
-import com.hzx.leetcode.LeetCode189;
+import com.hzx.leetcode.LeetCode221;
 
 //TIP To <b>Run</b> code, press <shortcut actionId="Run"/> or
 // click the <icon src="AllIcons.Actions.Execute"/> icon in the gutter.
 public class Main {
     public static void main(String[] args) {
 
-        int[] arr = new int[]{1, 2, 3, 4, 5, 6, 7};
-        LeetCode189 leetcode128 = new LeetCode189();
-        leetcode128.rotate(arr, 3);
+        char[][] arr = new char[2][2];
+        char[]
+        LeetCode221 leetcode128 = new LeetCode221();
+        leetcode128.maximalSquare(arr);
     }
 
 
