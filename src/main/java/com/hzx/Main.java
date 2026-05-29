@@ -8,7 +8,6 @@ public class Main {
     public static void main(String[] args) {
 
         char[][] arr = new char[2][2];
-        char[]
         LeetCode221 leetcode128 = new LeetCode221();
         leetcode128.maximalSquare(arr);
     }
