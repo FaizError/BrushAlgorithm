@@ -1,5 +1,7 @@
 package com.hzx.simulationexercise;
 
+import java.util.ArrayDeque;
+
 public class test5 {
 
     /**
@@ -38,8 +40,80 @@ public class test5 {
      * 解题思路
      */
 
+    // 方向数组：上下左右
+    private static final int[][] DIRS = {{-1, 0}, {1, 0}, {0, -1}, {0, 1}};
+
     public int minWireCost(int[][] grid) {
-        return 0;
+
+        // 先找到起点
+        int sr = -1, sc = -1, er = -1, ec = -1;
+        for (int i = 0; i < grid.length; i++) {
+            for (int j = 0; j < grid[0].length; j++) {
+                if (grid[i][j] == 2) {
+                    sr = i;
+                    sc = j;
+                }
+                if (grid[i][j] == 3) {
+                    er = i;
+                    ec = j;
+                }
+            }
+        }
+
+        boolean[][][] visited = new boolean[grid.length][grid[0].length][3];
+        ArrayDeque<int[]> queue = new ArrayDeque<>();
+
+        queue.offer(new int[]{sr, sc, 0, 0});
+        visited[sr][sc][0] = true;
+
+
+        while (!queue.isEmpty()) {
+
+            int[] poll = queue.poll();
+            int row = poll[0];
+            int col = poll[1];
+            int buff = poll[2];
+            int cost = poll[3];
+
+            if (row == er && col == ec) {
+                return cost;
+            }
+
+            for (int[] d : DIRS) {
+                int nr = row + d[0];
+                int nc = col + d[1];
+
+                if (nr < 0 || nr >= grid.length || nc < 0 || nc >= grid[0].length) {
+                    continue;
+                }
+
+                if (grid[nr][nc] == 1) {
+                    continue;
+                }
+
+                int stepCost = (buff > 0 || grid[nr][nc] != 0) ? 0 : 1;
+                int newCost = cost + stepCost;
+
+                int newBuff = Math.max(0, buff - 1);
+                if (grid[nr][nc] == 4) {
+                    newBuff = 2;
+                }
+
+                if (!visited[nr][nc][newBuff]) {
+                    visited[nr][nc][newBuff] = true;
+
+                    if (stepCost == 0) {
+                        queue.offerFirst(new int[]{nr, nc, newBuff, newCost});
+                    } else {
+                        queue.offerLast(new int[]{nr, nc, newBuff, newCost});
+                    }
+                }
+
+            }
+
+        }
+
+        return -1;
     }
 
 }

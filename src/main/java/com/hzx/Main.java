@@ -1,5 +1,7 @@
 package com.hzx;
 
+import com.hzx.leetcode.LeetCode994;
+
 //TIP To <b>Run</b> code, press <shortcut actionId="Run"/> or
 // click the <icon src="AllIcons.Actions.Execute"/> icon in the gutter.
 public class Main {
@@ -9,16 +11,21 @@ public class Main {
 //        LeetCode221 leetcode128 = new LeetCode221();
 //        leetcode128.maximalSquare(arr);
 
-        String a = "0o13";
-        System.out.println(Integer.parseInt(a.substring(2), 8));
-
-        int b = -5;
-        b = ~b;
-        System.out.println(Integer.toHexString(b));
-
-
-        String c = "+";
-        System.out.println(c.charAt(0) != '+');
+//        String a = "0o13";
+//        System.out.println(Integer.parseInt(a.substring(2), 8));
+//
+//        int b = -5;
+//        b = ~b;
+//        System.out.println(Integer.toHexString(b));
+//
+//
+//        String c = "+";
+//        System.out.println(c.charAt(0) != '+');
+        LeetCode994 leetCode994 = new LeetCode994();
+        int[][] myArray = {
+                {1, 2}
+        };
+        System.out.println(leetCode994.orangesRotting(myArray));
     }
 
 
